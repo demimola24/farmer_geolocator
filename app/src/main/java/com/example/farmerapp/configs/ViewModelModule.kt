@@ -19,7 +19,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
-    abstract fun bindTransferViewModel(viewModel: MainViewModel): ViewModel
+    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 
 
     /**

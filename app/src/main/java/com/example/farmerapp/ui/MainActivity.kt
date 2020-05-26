@@ -5,10 +5,15 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.farmerapp.R
+import com.example.farmerapp.ui.base.ToolbarFragment
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -41,15 +46,41 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
             return@AppBarConfiguration true
         }
         toolbar.setupWithNavController(navController, appBarConfiguration)
+        (this as FragmentActivity).supportFragmentManager.registerFragmentLifecycleCallbacks(
+            fragLifecycleCallbacks,
+            true
+        )
 
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
 
+    private val fragLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
+        override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
+            super.onFragmentResumed(fm, f)
+
+            (f as? ToolbarFragment)?.apply {
+                if (f.showToolBar) {
+                    toolbar.visibility = View.VISIBLE
+                } else {
+                    toolbar.visibility = View.GONE
+
+                }
+            }
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (this as FragmentActivity).supportFragmentManager.unregisterFragmentLifecycleCallbacks(
+            fragLifecycleCallbacks
+        )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

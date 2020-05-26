@@ -12,6 +12,9 @@ import javax.inject.Inject
 
 class SplashFragment : BaseFragment() {
 
+    override val showToolBar: Boolean
+        get() = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,6 +25,6 @@ class SplashFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        //findNavController().navigate(R.id.action_splashFragment_to_onBoardFragment)
+
     }
 }
