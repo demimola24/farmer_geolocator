@@ -6,15 +6,14 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import com.Farmerfintech.app.FarmerApp
-import com.Farmerfintech.app.utils.ActivityLifecycleCallbackAdapter
-import com.Farmerfintech.app.utils.Constants
+import com.example.farmerapp.FarmerApp
+import com.mintfintech.app.utils.ActivityLifecycleCallbackAdapter
 import dagger.android.AndroidInjection
 import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 
 /**
- * @author Demimola Hanks on 2/13/18.
+ * @author Demimola on 2/13/18.
  * Main Injector Class
  * */
 class AppInjector {
@@ -25,7 +24,6 @@ class AppInjector {
             DaggerAppComponent.builder()
                 .application(app)
                 .appModule(AppModule(app))
-                .sharedPreferencesModule(SharedPrefModule(app, Constants.SHARED_PREF_NAME))
                 .build()
                 .also { app.appComponent = it }
                 .inject(app)

@@ -16,12 +16,26 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        kapt {
+//            arguments {
+//                arg("room.schemaLocation", "$projectDir/schemas".toString())
+//            }
+//        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
@@ -35,16 +49,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "javax.annotation:javax.annotation-api:1.2"AppComponent
-    AppInjector
-    AppModule
-    extension.kt
-    FragmentBuildersModule
-    Injectable
-    MainActivityModule
-    SharedPrefModule
-    ViewModelKey
-    ViewModelModule
+    implementation "javax.annotation:javax.annotation-api:1.2"
 
     //okhttp3
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttp3"
@@ -57,9 +62,17 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+
     //rxBinding
     implementation "com.jakewharton.rxbinding3:rxbinding:$versions.rx_binding"
     implementation "com.jakewharton.rxbinding3:rxbinding-core:$versions.rx_binding"
+
+    //room
+    implementation "androidx.room:room-runtime:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
 
     //lifecycle -> ViewModel and Livedata
     //implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
