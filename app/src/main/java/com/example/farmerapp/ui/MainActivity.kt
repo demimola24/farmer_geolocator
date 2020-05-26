@@ -40,7 +40,9 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.splashFragment
+                R.id.splashFragment,
+                R.id.loginFragment,
+                R.id.homeFragment
             ), null
         ) {
             return@AppBarConfiguration true

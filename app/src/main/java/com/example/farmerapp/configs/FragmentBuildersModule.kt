@@ -1,6 +1,8 @@
 package com.example.farmerapp.configs
 
+import com.example.farmerapp.ui.auth.LoginFragment
 import com.example.farmerapp.ui.auth.SplashFragment
+import com.example.farmerapp.ui.home.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -16,4 +18,16 @@ abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     @FeatureScope
     internal abstract fun contributeSplashFragment(): SplashFragment
+
+
+    @ContributesAndroidInjector
+    @FeatureScope
+    internal abstract fun contributeLoginFragment(): LoginFragment
+
+    @ContributesAndroidInjector
+    @FeatureScope
+    internal abstract fun contributeHomeFragment(): HomeFragment
+
+
+
 }

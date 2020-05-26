@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "398896767161",
+    "firebase_url": "https://mycityapp-4411e.firebaseio.com",
+    "project_id": "mycityapp-4411e",
+    "storage_bucket": "mycityapp-4411e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398896767161:android:c51986de4f3520ceabfb68",
+        "android_client_info": {
+          "package_name": "com.example.farmerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5sNn8uszUtuMRYqyghpOlEopxMJ5q4H4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398896767161-lh0khfcqg2kr005luhv0es09rf867535.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ng.com.veritushub.swyft"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398896767161:android:8919fb9f0eb0042a",
+        "android_client_info": {
+          "package_name": "com.semantiks.passengerhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5sNn8uszUtuMRYqyghpOlEopxMJ5q4H4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398896767161-lh0khfcqg2kr005luhv0es09rf867535.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ng.com.veritushub.swyft"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398896767161:android:843f878686d5f2ba",
+        "android_client_info": {
+          "package_name": "ng.com.veritushub.swyft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5sNn8uszUtuMRYqyghpOlEopxMJ5q4H4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398896767161-frapaara4n0phidd7rr58fk7kb72lc9s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398896767161-lh0khfcqg2kr005luhv0es09rf867535.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ng.com.veritushub.swyft"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
