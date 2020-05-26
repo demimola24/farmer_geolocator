@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.home.LocationPicker2Activity"
+            android:name=".ui.farmer.LocationPicker2Activity"
             android:label="@string/leku_title_activity_location_picker"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan"

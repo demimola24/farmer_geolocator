@@ -11,7 +11,7 @@ buildscript {
             'rxandroid'        : '2.1.1',
             'rx_binding'       : '3.0.0-alpha2',
             'navigation'       : '2.2.1',
-            'room'             : '2.1.0-beta01',
+            'room'             : '2.2.5',
     ]
     repositories {
         google()

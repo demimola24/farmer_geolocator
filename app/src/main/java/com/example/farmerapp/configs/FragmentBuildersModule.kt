@@ -2,6 +2,7 @@ package com.example.farmerapp.configs
 
 import com.example.farmerapp.ui.auth.LoginFragment
 import com.example.farmerapp.ui.auth.SplashFragment
+import com.example.farmerapp.ui.farmer.NewFarmerFragment
 import com.example.farmerapp.ui.home.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -27,6 +28,13 @@ abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     @FeatureScope
     internal abstract fun contributeHomeFragment(): HomeFragment
+
+    @ContributesAndroidInjector
+    @FeatureScope
+    internal abstract fun contributeNewFarmerFragment(): NewFarmerFragment
+
+
+
 
 
 

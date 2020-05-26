@@ -1,4 +1,4 @@
-package com.example.farmerapp.ui.home
+package com.example.farmerapp.ui.farmer
 
 import com.schibstedspain.leku.LekuPoi
 import com.schibstedspain.leku.LocationPicker
@@ -44,6 +44,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farmerapp.R
+import com.example.farmerapp.ui.home.DefaultCountryLocaleRect
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.common.api.GoogleApiClient
@@ -651,7 +652,9 @@ class LocationPicker2Activity : AppCompatActivity(),
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
         if (connectionResult.hasResolution()) {
             try {
-                connectionResult.startResolutionForResult(this, CONNECTION_FAILURE_RESOLUTION_REQUEST)
+                connectionResult.startResolutionForResult(this,
+                    CONNECTION_FAILURE_RESOLUTION_REQUEST
+                )
             } catch (e: IntentSender.SendIntentException) {
                 track(TrackEvents.GOOGLE_API_CONNECTION_FAILED)
             }
@@ -670,7 +673,10 @@ class LocationPicker2Activity : AppCompatActivity(),
             savedInstanceState.putString(LAST_LOCATION_QUERY, it.text.toString())
         }
         if (bundle.containsKey(TRANSITION_BUNDLE)) {
-            savedInstanceState.putBundle(TRANSITION_BUNDLE, bundle.getBundle(TRANSITION_BUNDLE))
+            savedInstanceState.putBundle(
+                TRANSITION_BUNDLE, bundle.getBundle(
+                    TRANSITION_BUNDLE
+                ))
         }
         poisList?.let {
             savedInstanceState.putParcelableArrayList(POIS_LIST, ArrayList(it))
@@ -691,7 +697,10 @@ class LocationPicker2Activity : AppCompatActivity(),
             setCurrentPositionLocation()
         }
         if (savedInstanceState.containsKey(TRANSITION_BUNDLE)) {
-            bundle.putBundle(TRANSITION_BUNDLE, savedInstanceState.getBundle(TRANSITION_BUNDLE))
+            bundle.putBundle(
+                TRANSITION_BUNDLE, savedInstanceState.getBundle(
+                    TRANSITION_BUNDLE
+                ))
         }
         if (savedInstanceState.containsKey(POIS_LIST)) {
             poisList = savedInstanceState.getParcelableArrayList(POIS_LIST)
@@ -700,7 +709,9 @@ class LocationPicker2Activity : AppCompatActivity(),
             enableSatelliteView = savedInstanceState.getBoolean(ENABLE_SATELLITE_VIEW)
         }
         if (savedInstanceState.containsKey(ENABLE_LOCATION_PERMISSION_REQUEST)) {
-            enableLocationPermissionRequest = savedInstanceState.getBoolean(ENABLE_LOCATION_PERMISSION_REQUEST)
+            enableLocationPermissionRequest = savedInstanceState.getBoolean(
+                ENABLE_LOCATION_PERMISSION_REQUEST
+            )
         }
     }
 
@@ -885,7 +896,10 @@ class LocationPicker2Activity : AppCompatActivity(),
 
     private fun getSavedInstanceParams(savedInstanceState: Bundle) {
         if (savedInstanceState.containsKey(TRANSITION_BUNDLE)) {
-            bundle.putBundle(TRANSITION_BUNDLE, savedInstanceState.getBundle(TRANSITION_BUNDLE))
+            bundle.putBundle(
+                TRANSITION_BUNDLE, savedInstanceState.getBundle(
+                    TRANSITION_BUNDLE
+                ))
         } else {
             bundle.putBundle(TRANSITION_BUNDLE, savedInstanceState)
         }
@@ -921,7 +935,9 @@ class LocationPicker2Activity : AppCompatActivity(),
             poisList = savedInstanceState.getParcelableArrayList(POIS_LIST)
         }
         if (savedInstanceState.keySet().contains(ENABLE_LOCATION_PERMISSION_REQUEST)) {
-            enableLocationPermissionRequest = savedInstanceState.getBoolean(ENABLE_LOCATION_PERMISSION_REQUEST)
+            enableLocationPermissionRequest = savedInstanceState.getBoolean(
+                ENABLE_LOCATION_PERMISSION_REQUEST
+            )
         }
         if (savedInstanceState.keySet().contains(ENABLE_VOICE_SEARCH)) {
             isVoiceSearchEnabled = savedInstanceState.getBoolean(ENABLE_VOICE_SEARCH, true)
@@ -962,7 +978,9 @@ class LocationPicker2Activity : AppCompatActivity(),
             enableSatelliteView = transitionBundle.getBoolean(ENABLE_SATELLITE_VIEW)
         }
         if (transitionBundle.keySet().contains(ENABLE_LOCATION_PERMISSION_REQUEST)) {
-            enableLocationPermissionRequest = transitionBundle.getBoolean(ENABLE_LOCATION_PERMISSION_REQUEST)
+            enableLocationPermissionRequest = transitionBundle.getBoolean(
+                ENABLE_LOCATION_PERMISSION_REQUEST
+            )
         }
         if (transitionBundle.keySet().contains(POIS_LIST)) {
             poisList = transitionBundle.getParcelableArrayList(POIS_LIST)
@@ -1035,7 +1053,9 @@ class LocationPicker2Activity : AppCompatActivity(),
         val result = googleAPI.isGooglePlayServicesAvailable(applicationContext)
         if (result != ConnectionResult.SUCCESS) {
             if (googleAPI.isUserResolvableError(result)) {
-                googleAPI.getErrorDialog(this, result, CONNECTION_FAILURE_RESOLUTION_REQUEST).show()
+                googleAPI.getErrorDialog(this, result,
+                    CONNECTION_FAILURE_RESOLUTION_REQUEST
+                ).show()
             }
             return false
         }
@@ -1121,13 +1141,21 @@ class LocationPicker2Activity : AppCompatActivity(),
 
     private fun retrieveLocationWithDebounceTimeFrom(query: String) {
         if (searchZone != null && searchZone!!.isNotEmpty()) {
-            retrieveDebouncedLocationFromZone(query, searchZone!!, DEBOUNCE_TIME)
+            retrieveDebouncedLocationFromZone(query, searchZone!!,
+                DEBOUNCE_TIME
+            )
         } else if (searchZoneRect != null) {
-            retrieveDebouncedLocationFromZone(query, searchZoneRect!!, DEBOUNCE_TIME)
+            retrieveDebouncedLocationFromZone(query, searchZoneRect!!,
+                DEBOUNCE_TIME
+            )
         } else if (isSearchZoneWithDefaultLocale) {
-            retrieveDebouncedLocationFromDefaultZone(query, DEBOUNCE_TIME)
+            retrieveDebouncedLocationFromDefaultZone(query,
+                DEBOUNCE_TIME
+            )
         } else {
-            geocoderPresenter?.getDebouncedFromLocationName(query, DEBOUNCE_TIME)
+            geocoderPresenter?.getDebouncedFromLocationName(query,
+                DEBOUNCE_TIME
+            )
         }
     }
 
@@ -1146,8 +1174,12 @@ class LocationPicker2Activity : AppCompatActivity(),
         geocoderPresenter?.let {
             val locale = Locale(zoneKey)
             if (DefaultCountryLocaleRect.getLowerLeftFromZone(locale) != null) {
-                it.getFromLocationName(query, DefaultCountryLocaleRect.getLowerLeftFromZone(locale)!!,
-                    DefaultCountryLocaleRect.getUpperRightFromZone(locale)!!)
+                it.getFromLocationName(query, DefaultCountryLocaleRect.getLowerLeftFromZone(
+                    locale
+                )!!,
+                    DefaultCountryLocaleRect.getUpperRightFromZone(
+                        locale
+                    )!!)
             } else {
                 it.getFromLocationName(query)
             }
@@ -1177,8 +1209,12 @@ class LocationPicker2Activity : AppCompatActivity(),
         geocoderPresenter?.let {
             val locale = Locale(zoneKey)
             if (DefaultCountryLocaleRect.getLowerLeftFromZone(locale) != null) {
-                it.getDebouncedFromLocationName(query, DefaultCountryLocaleRect.getLowerLeftFromZone(locale)!!,
-                    DefaultCountryLocaleRect.getUpperRightFromZone(locale)!!, debounceTime)
+                it.getDebouncedFromLocationName(query, DefaultCountryLocaleRect.getLowerLeftFromZone(
+                    locale
+                )!!,
+                    DefaultCountryLocaleRect.getUpperRightFromZone(
+                        locale
+                    )!!, debounceTime)
             } else {
                 it.getDebouncedFromLocationName(query, debounceTime)
             }
@@ -1204,7 +1240,10 @@ class LocationPicker2Activity : AppCompatActivity(),
                     if (street != null && city != null) {
                         returnIntent.putExtra(LOCATION_ADDRESS, locationAddress)
                     }
-                    returnIntent.putExtra(TRANSITION_BUNDLE, bundle.getBundle(TRANSITION_BUNDLE))
+                    returnIntent.putExtra(
+                        TRANSITION_BUNDLE, bundle.getBundle(
+                            TRANSITION_BUNDLE
+                        ))
                     returnIntent.putExtra(LEKU_POI, it)
                     setResult(Activity.RESULT_OK, returnIntent)
                     track(TrackEvents.RESULT_OK)
@@ -1227,7 +1266,10 @@ class LocationPicker2Activity : AppCompatActivity(),
                     returnIntent.putExtra(TIME_ZONE_ID, timeZone.id)
                     returnIntent.putExtra(TIME_ZONE_DISPLAY_NAME, timeZone.displayName)
                 }
-                returnIntent.putExtra(TRANSITION_BUNDLE, bundle.getBundle(TRANSITION_BUNDLE))
+                returnIntent.putExtra(
+                    TRANSITION_BUNDLE, bundle.getBundle(
+                        TRANSITION_BUNDLE
+                    ))
                 setResult(Activity.RESULT_OK, returnIntent)
                 track(TrackEvents.RESULT_OK)
             }
@@ -1453,17 +1495,23 @@ class LocationPicker2Activity : AppCompatActivity(),
         }
 
         fun withStreetHidden(): Builder {
-            this.layoutsToHide = String.format("%s|%s", layoutsToHide, OPTIONS_HIDE_STREET)
+            this.layoutsToHide = String.format("%s|%s", layoutsToHide,
+                OPTIONS_HIDE_STREET
+            )
             return this
         }
 
         fun withCityHidden(): Builder {
-            this.layoutsToHide = String.format("%s|%s", layoutsToHide, OPTIONS_HIDE_CITY)
+            this.layoutsToHide = String.format("%s|%s", layoutsToHide,
+                OPTIONS_HIDE_CITY
+            )
             return this
         }
 
         fun withZipCodeHidden(): Builder {
-            this.layoutsToHide = String.format("%s|%s", layoutsToHide, OPTIONS_HIDE_ZIPCODE)
+            this.layoutsToHide = String.format("%s|%s", layoutsToHide,
+                OPTIONS_HIDE_ZIPCODE
+            )
             return this
         }
 

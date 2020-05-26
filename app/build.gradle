@@ -75,8 +75,8 @@ dependencies {
     implementation "com.jakewharton.rxbinding3:rxbinding-core:$versions.rx_binding"
 
     //room
-//    implementation "androidx.room:room-runtime:$versions.room"
-//    kapt "androidx.room:room-compiler:$versions.room"
+    implementation "androidx.room:room-runtime:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
 
     //lifecycle -> ViewModel and Livedata
     //implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"

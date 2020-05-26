@@ -38,7 +38,13 @@
         android:name="com.example.farmerapp.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
+    </fragment>
 
+    <fragment
+        android:id="@+id/newFarmFragment"
+        android:name="com.example.farmerapp.ui.farmer.NewFarmerFragment"
+        android:label="New Farm"
+        tools:layout="@layout/fragment_new_farm" >
     </fragment>
 
 

@@ -1,4 +1,4 @@
-package com.example.farmerapp.ui.home
+package com.example.farmerapp.ui.farmer
 
 import android.app.Activity
 import android.content.Intent
@@ -16,7 +16,7 @@ import com.schibstedspain.leku.*
 import com.schibstedspain.leku.locale.SearchZoneRect
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : BaseFragment() {
+class SaveFarmerFragment : BaseFragment() {
     override val showToolBar: Boolean
         get() = true
 
