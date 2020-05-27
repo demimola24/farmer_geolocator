@@ -2,12 +2,10 @@
 
 Simple app to register and geotag farmers (:
 
-<img src="https://github.com/demimola24/farmer_geolocator/blob/master/farm1.jpeg" width="100" height="100">
+<img src="https://github.com/demimola24/farmer_geolocator/blob/master/farm1.jpeg" width="300" height="530">
 
-![test image size](https://github.com/demimola24/farmer_geolocator/blob/master/farm1.jpeg){:height="50%" width="50%"}
+<img src="https://github.com/demimola24/farmer_geolocator/blob/master/farm2.jpeg" width="300" height="530">
 
-![alt tag](https://github.com/demimola24/farmer_geolocator/blob/master/farm1.jpeg)
-
-![alt tag](https://github.com/demimola24/farmer_geolocator/blob/master/farm1.jpeg)
+<img src="https://github.com/demimola24/farmer_geolocator/blob/master/farm3.jpeg" width="300" height="530">
 
 
