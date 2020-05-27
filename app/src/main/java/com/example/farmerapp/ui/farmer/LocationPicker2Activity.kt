@@ -1084,7 +1084,7 @@ class LocationPicker2Activity : AppCompatActivity(),
         }
         city?.text = if (isStreetEqualsCity(address)) "" else address.locality
         zipCode?.text = address.postalCode
-        showAddressLayout()
+        //showAddressLayout()
     }
 
     private fun setLocationInfo(poi: LekuPoi) {
@@ -1092,7 +1092,7 @@ class LocationPicker2Activity : AppCompatActivity(),
         street?.text = poi.title
         city?.text = poi.address
         zipCode?.text = null
-        showAddressLayout()
+       // showAddressLayout()
     }
 
     private fun isStreetEqualsCity(address: Address): Boolean {

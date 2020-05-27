@@ -26,12 +26,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Farm Name"
+            android:text="Farmer's Name"
             android:textColor="@color/colorTextBody"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +65,75 @@
 
 
         <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="Farmer's Number"
+            android:textColor="@color/colorTextBody"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_number"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundColor="@color/colorGray"
+            app:boxStrokeWidth="1dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/edit_text_background"
+                android:inputType="phone"
+                android:textColorHint="@color/colorGray" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_farm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="Farm Name"
+            android:textColor="@color/colorTextBody"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_number" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_farm_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundColor="@color/colorGray"
+            app:boxStrokeWidth="1dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_farm_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/edit_text_background"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/colorGray" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,8 +141,8 @@
             android:text="Location"
             android:textColor="@color/colorTextBody"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/til_name"
-            app:layout_constraintTop_toBottomOf="@+id/til_name" />
+            app:layout_constraintStart_toStartOf="@+id/til_farm_name"
+            app:layout_constraintTop_toBottomOf="@+id/til_farm_name" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_location"

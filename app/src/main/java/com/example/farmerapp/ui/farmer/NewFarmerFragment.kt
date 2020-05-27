@@ -8,15 +8,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.farmerapp.R
+import com.example.farmerapp.db.entity.Farmer
 import com.example.farmerapp.ui.base.BaseFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.SphericalUtil
 import com.schibstedspain.leku.locale.SearchZoneRect
 import kotlinx.android.synthetic.main.fragment_new_farm.*
 
 class NewFarmerFragment : BaseFragment() {
     override val showToolBar: Boolean
         get() = true
+
+    var cordOne : LatLng? = null
+    var cordTwo : LatLng? = null
+    var cordThree : LatLng? = null
+    var cordFour : LatLng? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,21 +43,25 @@ class NewFarmerFragment : BaseFragment() {
                     val latitude = data.getDoubleExtra(LATITUDE, 0.0)
                     val longitude = data.getDoubleExtra(LONGITUDE, 0.0)
                     til_cord_one.editText?.setText("$latitude,$longitude")
+                    cordOne = LatLng(latitude,longitude)
                 }
                 4 -> {
                     val latitude = data.getDoubleExtra(LATITUDE, 0.0)
                     val longitude = data.getDoubleExtra(LONGITUDE, 0.0)
                     til_cord_two.editText?.setText("$latitude,$longitude")
+                    cordTwo = LatLng(latitude,longitude)
                 }
                 5 -> {
                     val latitude = data.getDoubleExtra(LATITUDE, 0.0)
                     val longitude = data.getDoubleExtra(LONGITUDE, 0.0)
                     til_cord_three.editText?.setText("$latitude,$longitude")
+                    cordThree = LatLng(latitude,longitude)
                 }
                 6 -> {
                     val latitude = data.getDoubleExtra(LATITUDE, 0.0)
                     val longitude = data.getDoubleExtra(LONGITUDE, 0.0)
                     til_cord_four.editText?.setText("$latitude,$longitude")
+                    cordFour = LatLng(latitude,longitude)
                 }
 
             }
@@ -101,11 +113,45 @@ class NewFarmerFragment : BaseFragment() {
         btn_cord_four.setOnClickListener {
             startActivityForResult(locationPickerIntent, 6)
         }
+        btn_proceed.setOnClickListener {
+            gotoSaveFragment()
+        }
 
     }
 
-    private fun gotoAuthSignIn() {
-        //  findNavController().navigate(direction)
+    private fun gotoSaveFragment() {
+        val name = til_name.editText?.text.toString()
+        val number = til_number.editText?.text.toString()
+        val farmName = til_farm_name.editText?.text.toString()
+        val farmLocation = til_location.editText?.text.toString()
+
+        if(name.isEmpty()){
+            showErrorDialog("Invalid Name")
+            return
+        }
+        if(number.isEmpty()){
+            showErrorDialog("Invalid Number")
+            return
+        }
+        if(farmName.isEmpty()){
+            showErrorDialog("Invalid Farm Name")
+            return
+        }
+        if(farmLocation.isEmpty()){
+            showErrorDialog("Invalid Location")
+            return
+        }
+        if(cordOne==null||cordTwo==null||cordThree==null||cordFour==null){
+            showErrorDialog("All coordinates of your farm are required")
+            return
+        }
+        val listLagLong: List<LatLng?> = listOf(cordOne,cordTwo,cordThree,cordFour)
+        val area = SphericalUtil.computeArea(listLagLong)
+        val farmerDetails = Farmer(id = 0,name =name,number = number,pictureUrl = "",farmName = farmName,farmLocation = farmLocation,farmArea = area,farmLatLong = listLagLong)
+
+         val action = NewFarmerFragmentDirections.actionNewFarmFragmentToSaveFarmFragment(farmerDetails)
+          findNavController().navigate(action)
     }
+
 
 }

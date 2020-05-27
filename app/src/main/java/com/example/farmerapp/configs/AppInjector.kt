@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.example.farmerapp.FarmerApp
-import com.mintfintech.app.utils.ActivityLifecycleCallbackAdapter
+import com.example.farmerapp.utils.ActivityLifecycleCallbackAdapter
 import dagger.android.AndroidInjection
 import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection

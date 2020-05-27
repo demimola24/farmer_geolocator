@@ -2,6 +2,7 @@ package com.example.farmerapp.configs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.farmerapp.ui.farmer.NewFarmerViewModel
 import com.example.farmerapp.ui.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
@@ -20,6 +21,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun bindMainViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewFarmerViewModel::class)
+    abstract fun bindNewFarmerViewModel(viewModel: NewFarmerViewModel): ViewModel
 
 
     /**

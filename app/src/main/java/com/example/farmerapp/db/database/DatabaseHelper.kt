@@ -4,8 +4,12 @@ import com.example.farmerapp.db.entity.Farmer
 
 interface DatabaseHelper {
 
-    suspend fun getUsers(): List<Farmer>
+    suspend fun getLatestFarmer(): List<Farmer>
 
-    suspend fun insert(users: Farmer)
+    suspend fun getBiggestFarmer(): List<Farmer>
+
+    suspend fun getFarmerCount(): Int
+
+    suspend fun insert(farmer: Farmer)
 
 }

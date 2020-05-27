@@ -1,15 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:padding="@dimen/dp_24"
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tv_most_recent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:textColor="@color/colorGray"
+        android:text="Latest Farmer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_most_recent_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextBody"
+        android:text="N/A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_most_recent" />
+
+
+    <TextView
+        android:id="@+id/tv_biggest_farm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:textColor="@color/colorGray"
+        android:text="Biggest Farm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_most_recent_text" />
+
+    <TextView
+        android:id="@+id/tv_biggest_farm_value"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextBody"
+        android:text="N/A"
+        app:layout_constraintEnd_toStartOf="@+id/tv_biggest_farm_area"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_biggest_farm" />
+
+    <TextView
+        android:id="@+id/tv_biggest_farm_area"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:maxLength="20"
+        android:maxLines="3"
+        android:textAlignment="textEnd"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextBody"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_biggest_farm_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_biggest_farm" />
+
+    <TextView
+        android:id="@+id/tv_farm_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:textColor="@color/colorGray"
+        android:text="Number of Registered Farmers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_biggest_farm_value"  />
+
+    <TextView
+        android:id="@+id/tv_farm_count_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextBody"
+        android:text="N/A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_farm_count" />
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
-        android:id="@+id/btn_new_farm"
         app:fabSize="auto"
+        android:id="@+id/fab_new_farm"
         android:src="@android:drawable/ic_input_add"
         app:rippleColor="@color/colorWhite"
         android:layout_margin="@dimen/dp_24"

@@ -45,7 +45,25 @@
         android:name="com.example.farmerapp.ui.farmer.NewFarmerFragment"
         android:label="New Farm"
         tools:layout="@layout/fragment_new_farm" >
+
+        <action
+            android:id="@+id/action_newFarmFragment_to_saveFarmFragment"
+            app:destination="@id/saveFarmFragment"/>
+
     </fragment>
+
+    <fragment
+        android:id="@+id/saveFarmFragment"
+        android:name="com.example.farmerapp.ui.farmer.SaveFarmerFragment"
+        android:label="Save Farm"
+        tools:layout="@layout/fragment_save_fragment" >
+
+        <argument
+            android:name="FarmerData"
+            app:argType="com.example.farmerapp.db.entity.Farmer" />
+
+    </fragment>
+
 
 
 </navigation>
