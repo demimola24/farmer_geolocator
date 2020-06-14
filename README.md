@@ -1,4 +1,8 @@
 # farmer_geolocator
+- Room
+- Dagger
+- Google maps
+- Android Navigation
 
 Simple app to register and geotag farmers (:
 
